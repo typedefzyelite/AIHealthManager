@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/page_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="24dp"
+                android:background="@color/health_bg"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="180dp"
+                    android:layout_height="140dp"
+                    android:src="@drawable/ic_health_illustration"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="健康插画"/>
+
+                <TextView
+                    android:id="@+id/tv_home_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="您的智能用药小助手"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginTop="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="扫一扫，让吃药变得更简单"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border_light"
+                    app:cardBackgroundColor="@color/card_bg">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="💝 关怀模式"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <TextView
+                            android:id="@+id/tv_elder_mode_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="大字体 · 语音播报"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginEnd="12dp"/>
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switch_elder_mode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_scan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="6dp"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="20dp"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_button_primary">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="📷  扫描药品说明书"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFFFF"/>
+
+                            <TextView
+                                android:id="@+id/tv_scan_prompt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="拍照识别药品，自动设置提醒"
+                                android:textSize="13sp"
+                                android:textColor="#DDEEFF"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iv_preview"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:src="@drawable/ic_new_camera_placeholder"
+                            android:scaleType="centerInside"
+                            app:tint="#FFFFFF"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/tv_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:gravity="center"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_med_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/border_light"
+                    app:strokeWidth="1dp"
+                    app:cardBackgroundColor="@color/surface">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="📝 本次识别记录"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"/>
+
+                            <TextView
+                                android:id="@+id/btn_manage_scan_list"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="管理"
+                                android:textSize="14sp"
+                                android:textColor="@color/primary"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="12dp"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:clickable="true"
+                                android:focusable="true"/>
+
+                            <TextView
+                                android:id="@+id/btn_clear_scan_list"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="清空"
+                                android:textSize="14sp"
+                                android:textColor="@color/accent_orange"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="4dp"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:clickable="true"
+                                android:focusable="true"/>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/border_light"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="12dp"/>
+
+                        <TextView
+                            android:id="@+id/tv_scan_list_display"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="暂无识别记录"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp"
+                            android:lineSpacingExtra="6dp"/>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:id="@+id/btn_search_medicine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="18dp"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_button_secondary"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔍"
+                        android:textSize="22sp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="搜索药品百科"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="输入药名，了解用法与禁忌"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="›"
+                        android:textSize="24sp"
+                        android:textColor="@color/accent_blue"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_ask_ai"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="18dp"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_button_secondary"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💬"
+                        android:textSize="22sp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="问AI健康助手"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="有问必答，健康疑问随时问"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="›"
+                        android:textSize="24sp"
+                        android:textColor="@color/accent_blue"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_sos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="18dp"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_button_secondary"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🆘"
+                        android:textSize="22sp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="紧急求助 / 摔倒检测"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="一键求助，自动发送位置给家人"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="›"
+                        android:textSize="24sp"
+                        android:textColor="@color/accent_red"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_tip_card">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💡"
+                        android:textSize="20sp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="用药小贴士"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="#F57C00"/>
+
+                        <TextView
+                            android:id="@+id/tv_health_tip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="服药时请用温开水送服，避免用茶水或牛奶"
+                            android:textSize="14sp"
+                            android:textColor="#5D4037"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/page_health"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/health_bg"
+            android:clipToPadding="false"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="24dp">
+
+                <TextView
+                    android:id="@+id/tv_health_page_title"
+                    style="@style/Widget.App.PageTitle"
+                    android:text="我的健康面板"/>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:rowCount="2">
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.App.CardView"
+                        android:layout_columnWeight="1">
+                        <LinearLayout style="@style/Widget.App.CardContent">
+                            <TextView 
+                                style="@style/Widget.App.CardTitle" 
+                                android:text="❤️ 实时心率"
+                                android:drawablePadding="6dp"/>
+                            <TextView 
+                                android:id="@+id/tv_heart_rate" 
+                                style="@style/Widget.App.CardData" 
+                                android:textColor="@color/accent_orange"/>
+                            <TextView 
+                                android:id="@+id/tv_heart_status" 
+                                style="@style/Widget.App.CardStatus"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.App.CardView"
+                        android:layout_columnWeight="1">
+                        <LinearLayout style="@style/Widget.App.CardContent">
+                            <TextView 
+                                style="@style/Widget.App.CardTitle" 
+                                android:text="👣 今日步数"/>
+                            <TextView 
+                                android:id="@+id/tv_steps" 
+                                style="@style/Widget.App.CardData" 
+                                android:textColor="@color/accent_blue"/>
+                            <ProgressBar
+                                android:id="@+id/progress_steps"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="6dp"
+                                android:layout_marginTop="10dp"
+                                android:max="10000"
+                                android:progressDrawable="@drawable/progress_steps_drawable"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.App.CardView"
+                        android:layout_columnWeight="1">
+                        <LinearLayout style="@style/Widget.App.CardContent">
+                            <TextView 
+                                style="@style/Widget.App.CardTitle" 
+                                android:text="🫁 实时血氧"/>
+                            <TextView 
+                                android:id="@+id/tv_blood_oxygen" 
+                                style="@style/Widget.App.CardData" 
+                                android:textColor="@color/accent_green"/>
+                            <TextView 
+                                android:id="@+id/tv_oxygen_status" 
+                                style="@style/Widget.App.CardStatus"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.App.CardView"
+                        android:layout_columnWeight="1">
+                        <LinearLayout style="@style/Widget.App.CardContent">
+                            <TextView 
+                                style="@style/Widget.App.CardTitle" 
+                                android:text="💤 昨晚睡眠"/>
+                            <TextView 
+                                android:id="@+id/tv_sleep_val" 
+                                style="@style/Widget.App.CardData" 
+                                android:textColor="@color/accent_purple"/>
+                            <TextView 
+                                android:id="@+id/tv_sleep_status" 
+                                style="@style/Widget.App.CardStatus"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </GridLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <View
+                                android:id="@+id/device_status_dot"
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:background="@drawable/bg_status_dot"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tv_device_status_label"
+                                android:text="设备状态"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_secondary"
+                                android:layout_marginStart="8dp"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_device_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="未连接设备"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"
+                            android:layout_marginTop="8dp"/>
+
+                        <TextView
+                            android:id="@+id/tv_device_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="请点击同步按钮连接"
+                            android:textSize="12sp"
+                            android:textColor="@color/accent_green"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btn_refresh_health"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="18dp"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_button_primary">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔄"
+                            android:textSize="22sp"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="14dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="同步最新数据"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="从智能设备获取健康数据"
+                                android:textSize="12sp"
+                                android:textColor="#DDEEFF"
+                                android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:id="@+id/btn_view_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="18dp"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_button_secondary"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📈"
+                        android:textSize="22sp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="查看健康趋势图"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="心率、血氧、睡眠的历史变化"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="›"
+                        android:textSize="24sp"
+                        android:textColor="@color/accent_blue"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/page_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/health_bg"
+            android:clipToPadding="false"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="24dp">
+
+                <TextView
+                    style="@style/Widget.App.PageTitle"
+                    android:text="个人中心"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="💊 我的药箱"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"/>
+
+                            <TextView
+                                android:id="@+id/btn_manage_medicine"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="管理"
+                                android:textSize="14sp"
+                                android:textColor="@color/primary"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="12dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:clickable="true"
+                                android:focusable="true"/>
+
+                            <TextView
+                                android:id="@+id/btn_clear_list"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="清空"
+                                android:textSize="14sp"
+                                android:textColor="@color/accent_orange"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="12dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:clickable="true"
+                                android:focusable="true"/>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/border_light"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"/>
+
+                        <TextView
+                            android:id="@+id/tv_medicine_list_display"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="暂无药品，请去首页拍照添加"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="15sp"
+                            android:lineSpacingExtra="6dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_take_medicine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="💊 确认服药"
+                            android:textSize="15sp"
+                            android:layout_marginTop="16dp"
+                            app:cornerRadius="12dp"
+                            android:backgroundTint="@color/primary_green"
+                            android:visibility="gone"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="📋 今日服药记录"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"/>
+
+                            <TextView
+                                android:id="@+id/btn_manage_records"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="管理"
+                                android:textSize="14sp"
+                                android:textColor="@color/primary"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="12dp"
+                                android:paddingTop="6dp"
+                                android:paddingBottom="6dp"
+                                android:clickable="true"
+                                android:focusable="true"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_medication_records"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="今日暂无服药记录"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="15sp"
+                            android:lineSpacingExtra="6dp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="📊 用药依从性统计"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"/>
+
+                            <TextView
+                                android:id="@+id/btn_refresh_compliance"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🔄 刷新"
+                                android:textSize="13sp"
+                                android:textColor="@color/primary"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="4dp"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:clickable="true"
+                                android:focusable="true"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="16dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/tv_compliance_rate"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="--"
+                                    android:textSize="28sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/accent_green"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="近期依从率"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/text_secondary"
+                                    android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/tv_taken_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textSize="28sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/primary"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="累计服药次"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/text_secondary"
+                                    android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/tv_streak_days"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textSize="28sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/accent_orange"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="连续服药天数"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/text_secondary"
+                                    android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#E8F5E9">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:background="#FAFFF9">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="🧠 智能分析引擎"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"/>
+
+                            <View
+                                android:layout_width="6dp"
+                                android:layout_height="6dp"
+                                android:background="@drawable/bg_status_dot"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="运行中"
+                                android:textSize="11sp"
+                                android:textColor="@color/accent_green"
+                                android:layout_marginStart="4dp"/>
+
+                            <TextView
+                                android:id="@+id/btn_refresh_analysis"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🔄 刷新"
+                                android:textSize="13sp"
+                                android:textColor="@color/primary"
+                                android:paddingStart="12dp"
+                                android:paddingEnd="4dp"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:clickable="true"
+                                android:focusable="true"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="基于LSTM时序模型，分析您的用药规律"
+                            android:textSize="13sp"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/bg_report_content_new"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:id="@+id/tv_ai_analysis"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="📍 正在学习您的用药习惯..."
+                                android:textSize="13sp"
+                                android:textColor="@color/text_primary"
+                                android:lineSpacingExtra="4dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⏰ 服药时间设置"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="设置您的日常服药时间，闹钟将按此提醒"
+                            android:textSize="13sp"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="16dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="早"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/text_secondary"/>
+
+                                <TextView
+                                    android:id="@+id/tv_time_morning"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="08:00"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary"
+                                    android:padding="8dp"
+                                    android:clickable="true"
+                                    android:focusable="true"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="中"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/text_secondary"/>
+
+                                <TextView
+                                    android:id="@+id/tv_time_noon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="12:00"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary"
+                                    android:padding="8dp"
+                                    android:clickable="true"
+                                    android:focusable="true"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="晚"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/text_secondary"/>
+
+                                <TextView
+                                    android:id="@+id/tv_time_evening"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="19:00"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary"
+                                    android:padding="8dp"
+                                    android:clickable="true"
+                                    android:focusable="true"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🤖 健康报告"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="根据您的健康数据和药箱，AI为您深度分析"
+                            android:textSize="13sp"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="4dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center">
+
+                            <RadioGroup
+                                android:id="@+id/rg_report_type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:background="@drawable/bg_radio_group"
+                                android:padding="4dp">
+
+                                <RadioButton
+                                    android:id="@+id/rb_week_report"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="40dp"
+                                    android:text="  周报  "
+                                    android:checked="true"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/color_filter_chip_text"
+                                    android:button="@null"
+                                    android:gravity="center"
+                                    android:paddingStart="20dp"
+                                    android:paddingEnd="20dp"
+                                    android:background="@drawable/bg_radio_button"/>
+
+                                <RadioButton
+                                    android:id="@+id/rb_month_report"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="40dp"
+                                    android:text="  月报  "
+                                    android:textSize="14sp"
+                                    android:textColor="@color/color_filter_chip_text"
+                                    android:button="@null"
+                                    android:gravity="center"
+                                    android:paddingStart="20dp"
+                                    android:paddingEnd="20dp"
+                                    android:background="@drawable/bg_radio_button"/>
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/btn_create_report"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="📄 生成健康分析报告"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                                android:paddingTop="16dp"
+                                android:paddingBottom="16dp"
+                                android:background="@drawable/bg_button_primary"/>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:id="@+id/tv_report_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_report_content_new"
+                            android:padding="16dp"
+                            android:layout_marginTop="16dp"
+                            android:text="点击上方按钮，AI 将为您深度分析健康数据..."
+                            android:textColor="@color/text_secondary"
+                            android:textSize="15sp"
+                            android:lineSpacingExtra="4dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_export_pdf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="📄 导出PDF"
+                            style="@style/Widget.Material3.Button.TextButton"
+                            android:visibility="gone"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border_light">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🆘 安全守护"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="8dp">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="摔倒检测"
+                                android:textSize="15sp"
+                                android:textColor="@color/text_primary"/>
+                            <com.google.android.material.switchmaterial.SwitchMaterial
+                                android:id="@+id/switch_fall_detection"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_fall_detection_status"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="开启后将持续监测，检测到摔倒自动通知紧急联系人"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="4dp"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#F0F0F0"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="12dp"/>
+
+                        <LinearLayout
+                            android:id="@+id/btn_set_emergency_contact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?attr/selectableItemBackground"
+                            android:padding="8dp">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="👨‍👩‍👧 紧急联系人"
+                                android:textSize="15sp"
+                                android:textColor="@color/text_primary"/>
+                            <TextView
+                                android:id="@+id/tv_emergency_contact"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="未设置"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_secondary"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" ›"
+                                android:textSize="18sp"
+                                android:textColor="@color/text_secondary"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

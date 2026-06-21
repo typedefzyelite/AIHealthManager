@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Widget.App theme. -->
+    <style name="Widget.App" parent="" />
+
+    <!-- ==================== 卡片样式 ==================== -->
+
+    <!-- 基础卡片样式 -->
+    <style name="Widget.App.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <!-- 健康指标卡片 (用于健康页面的2x2网格) -->
+    <style name="Widget.App.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">6dp</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/border_light</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+    </style>
+
+    <!-- 卡片内部内容容器 -->
+    <style name="Widget.App.CardContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">18dp</item>
+    </style>
+
+    <!-- ==================== 文字样式 ==================== -->
+
+    <!-- 页面大标题 -->
+    <style name="Widget.App.PageTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+
+    <!-- 卡片标题 -->
+    <style name="Widget.App.CardTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <!-- 卡片大数字 -->
+    <style name="Widget.App.CardData" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:text">--</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- 卡片状态文字 -->
+    <style name="Widget.App.CardStatus" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:text">--</item>
+    </style>
+
+    <!-- 区块标题 -->
+    <style name="Widget.App.SectionTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- ==================== 按钮样式 ==================== -->
+
+    <!-- 主按钮 -->
+    <style name="Widget.App.Button.Primary" parent="Widget.Material3.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="backgroundTint">@color/accent_blue</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- 次级按钮 -->
+    <style name="Widget.App.Button.Secondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="strokeColor">@color/accent_blue</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="android:textColor">@color/accent_blue</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>

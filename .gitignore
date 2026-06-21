@@ -1,0 +1,46 @@
+# Built application files
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Java / Kotlin
+*.class
+*.dex
+*.iml
+
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Local configuration (SDK path, API keys, credentials)
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Keystore
+*.jks
+*.keystore
+
+# Logs
+*.log
+.kotlin/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python (local tooling, not part of the Android app)
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Secrets
+*.env
+.env.*

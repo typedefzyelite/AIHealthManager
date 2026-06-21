@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 基础色 -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- 主题色系 - 清新蓝绿 -->
+    <color name="primary">#2196F3</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="primary_light">#BBDEFB</color>
+    <color name="primary_variant">#448AFF</color>
+
+    <!-- 背景色 -->
+    <color name="health_bg">#F5F7FA</color>
+    <color name="health_card_bg">#FFFFFF</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F8FAFC</color>
+
+    <!-- 文字色 -->
+    <color name="text_primary">#1A1A2E</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_hint">#94A3B8</color>
+    <color name="text_on_primary">#FFFFFF</color>
+
+    <!-- 强调色 -->
+    <color name="accent_blue">#3B82F6</color>
+    <color name="accent_green">#10B981</color>
+    <color name="primary_green">#10B981</color>
+    <color name="accent_orange">#F59E0B</color>
+    <color name="accent_purple">#8B5CF6</color>
+    <color name="accent_red">#EF4444</color>
+    <color name="accent_pink">#EC4899</color>
+    <color name="accent_cyan">#06B6D4</color>
+
+    <!-- 状态色 -->
+    <color name="success">#10B981</color>
+    <color name="success_bg">#D1FAE5</color>
+    <color name="warning">#F59E0B</color>
+    <color name="warning_bg">#FEF3C7</color>
+    <color name="error">#EF4444</color>
+    <color name="error_bg">#FEE2E2</color>
+    <color name="info">#3B82F6</color>
+    <color name="info_bg">#DBEAFE</color>
+
+    <!-- 分割线/边框 -->
+    <color name="divider">#E2E8F0</color>
+    <color name="border">#E2E8F0</color>
+    <color name="border_light">#F1F5F9</color>
+
+    <!-- 旧版兼容 -->
+    <color name="purple_200">#90CAF9</color>
+    <color name="purple_500">#2196F3</color>
+    <color name="purple_700">#1976D2</color>
+    <color name="teal_200">#A5D6A7</color>
+    <color name="teal_700">#388E3C</color>
+</resources>

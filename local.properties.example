@@ -1,0 +1,14 @@
+# Copy this file to local.properties and fill in your values.
+# local.properties is gitignored and will NOT be uploaded to GitHub.
+
+# Android SDK path (Android Studio usually generates this automatically)
+sdk.dir=/path/to/Android/sdk
+
+# DeepSeek API key for AI health analysis
+# Get one at: https://platform.deepseek.com/
+DEEPSEEK_API_KEY=your_deepseek_api_key_here
+
+# OPPO / HeyTap Health SDK Maven credentials
+# Required to resolve com.heytap.health:sdk dependency
+HEYTAP_HEALTH_MAVEN_USER=your_maven_username
+HEYTAP_HEALTH_MAVEN_PASSWORD=your_maven_password

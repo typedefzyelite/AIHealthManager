@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="160dp"
+    android:viewportWidth="200"
+    android:viewportHeight="160">
+
+    <!-- 背景圆形装饰 -->
+    <path
+        android:pathData="M100,80m-70,0a70,70 0,1 1,140 0a70,70 0,1 1,-140 0"
+        android:fillColor="#E3F2FD"
+        android:fillAlpha="0.6"/>
+
+    <path
+        android:pathData="M100,80m-55,0a55,55 0,1 1,110 0a55,55 0,1 1,-110 0"
+        android:fillColor="#BBDEFB"
+        android:fillAlpha="0.5"/>
+
+    <!-- 药丸胶囊 1 (左上) -->
+    <path
+        android:pathData="M45,35 L55,50 A8,8 0 0 1 55,66 L45,81 A8,8 0 0 1 35,81 L25,66 A8,8 0 0 1 25,50 L35,35 A8,8 0 0 1 45,35 Z"
+        android:fillColor="#FF7043"/>
+    <path
+        android:pathData="M45,58 L55,50 A8,8 0 0 1 55,66 L45,81 A8,8 0 0 1 35,81 L25,66 A8,8 0 0 1 25,58 Z"
+        android:fillColor="#FFCCBC"/>
+
+    <!-- 药丸胶囊 2 (右上) -->
+    <path
+        android:pathData="M155,30 Q165,30 170,40 L175,55 Q175,65 165,70 L155,70 Q145,70 140,60 L135,45 Q135,35 145,30 Z"
+        android:fillColor="#42A5F5"/>
+    <path
+        android:pathData="M155,50 Q165,50 170,55 L175,55 Q175,65 165,70 L155,70 Q145,70 140,65 L140,60 Q145,50 155,50 Z"
+        android:fillColor="#90CAF9"/>
+
+    <!-- 中间十字医疗标志 -->
+    <path
+        android:pathData="M100,55 m-25,0 a25,25 0 1,1 50,0 a25,25 0 1,1 -50,0"
+        android:fillColor="#FFFFFF"/>
+    <path
+        android:pathData="M100,55 m-22,0 a22,22 0 1,1 44,0 a22,22 0 1,1 -44,0"
+        android:fillColor="#4CAF50"/>
+    <path
+        android:pathData="M96,43 L104,43 L104,51 L112,51 L112,59 L104,59 L104,67 L96,67 L96,59 L88,59 L88,51 L96,51 Z"
+        android:fillColor="#FFFFFF"/>
+
+    <!-- 心形 (右侧) -->
+    <path
+        android:pathData="M150,95 C150,88 156,82 163,82 C167,82 171,84 173,88 C175,84 179,82 183,82 C190,82 196,88 196,95 C196,108 173,120 173,120 C173,120 150,108 150,95 Z"
+        android:fillColor="#E91E63"/>
+
+    <!-- 听诊器简化 (左下) -->
+    <path
+        android:pathData="M20,100 Q20,85 35,85 L40,85 Q45,85 45,90 L45,95 Q45,100 40,100 L35,100 Q30,100 30,105 L30,125 Q30,135 40,135 Q50,135 50,125 L50,115"
+        android:strokeColor="#5C6BC0"
+        android:strokeWidth="4"
+        android:fillColor="#00000000"/>
+    <path
+        android:pathData="M40,135 m-8,0 a8,8 0 1,1 16,0 a8,8 0 1,1 -16,0"
+        android:fillColor="#5C6BC0"/>
+
+    <!-- 小药片装饰 (散落) -->
+    <path
+        android:pathData="M70,120 m-6,0 a6,4 0 1,1 12,0 a6,4 0 1,1 -12,0"
+        android:fillColor="#FFB74D"/>
+
+    <path
+        android:pathData="M130,110 m-5,0 a5,3 0 1,1 10,0 a5,3 0 1,1 -10,0"
+        android:fillColor="#81C784"/>
+
+    <path
+        android:pathData="M85,140 m-4,0 a4,3 0 1,1 8,0 a4,3 0 1,1 -8,0"
+        android:fillColor="#64B5F6"/>
+
+    <!-- 小星星装饰 -->
+    <path
+        android:pathData="M170,45 L172,50 L177,50 L173,53 L175,58 L170,55 L165,58 L167,53 L163,50 L168,50 Z"
+        android:fillColor="#FFD54F"/>
+
+    <path
+        android:pathData="M25,115 L26,118 L29,118 L27,120 L28,123 L25,121 L22,123 L23,120 L21,118 L24,118 Z"
+        android:fillColor="#FFD54F"/>
+
+</vector>
