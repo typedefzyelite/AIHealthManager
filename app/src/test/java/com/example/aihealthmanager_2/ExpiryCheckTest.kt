@@ -5,13 +5,7 @@ import org.junit.Assert.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-/**
- * 单元测试 003：药品有效期检测
- * diffDays < 0  → 已过期
- * diffDays <= 30 → 即将过期
- * diffDays <= 90 → 显示日期
- * diffDays > 90  → 正常
- */
+/** 药品有效期状态判断 */
 class ExpiryCheckTest {
 
     private fun getExpiryStatus(expiryDate: String, today: Date): String {

@@ -3,10 +3,7 @@ package com.example.aihealthmanager_2
 import org.junit.Test
 import org.junit.Assert.*
 
-/**
- * 单元测试 001：AI OCR 文本解析
- * 测试 AI 返回的 "药名#频率#剂量" 格式经 split("#") 后各字段的正确性
- */
+/** OCR 结果 "药名#频率#剂量" 字段解析 */
 class OcrParsingTest {
 
     data class ParsedMedicine(val name: String, val frequency: Int, val dosage: String)

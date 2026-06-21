@@ -4,11 +4,7 @@ import org.junit.Test
 import org.junit.Assert.*
 import kotlin.math.sqrt
 
-/**
- * 单元测试 002：跌倒检测两阶段阈值算法
- * 阶段1：magnitude < FALL_THRESHOLD(3.0) → 判定为自由落体
- * 阶段2：1秒内 magnitude > IMPACT_THRESHOLD(25.0) → 确认跌倒
- */
+/** 跌倒检测：先检测自由落体，再在 1 秒内检测撞击 */
 class FallDetectionTest {
 
     companion object {
